@@ -1,0 +1,6 @@
+rootProject.name = 'monorepo'
+
+include 'common'
+include 'gateway'
+include 'user-service'
+include 'pet-service'
