@@ -1,0 +1,17 @@
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation project(':common')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+// task validatePetSchema(type: org.openapitools.generator.gradle.plugin.tasks.ValidateTask) {
+openApiValidate { // TODO why do we have to have one of these?
+    inputSpec = "$projectDir/apis/pet.yml"
+}
+
+task validateUserSchema(type: org.openapitools.generator.gradle.plugin.tasks.ValidateTask) {
+    inputSpec = "$projectDir/apis/user.yml"
+}
+
+task validateSpecs(dependsOn: ['validatePetSchema', 'validateUserSchema'])
